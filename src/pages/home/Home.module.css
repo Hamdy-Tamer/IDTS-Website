@@ -211,3 +211,48 @@
   background-color: var(--idts-black);
   color: var(--idts-white);
 }
+
+/* ===== Mobile hero: stack text above carousel, full width, uncropped images ===== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .heroInner {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .heroLeft {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .aboutTagline {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroRight {
+    flex: 0 0 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carouselWrapper {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Every image fills the exact same box, at the same height and width */
+  .carouselWrapper :global(.carousel-item img) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
