@@ -1,0 +1,360 @@
+:root {
+  --idts-white: #ffffff;
+  --idts-grey-light: #f2f1f6;
+  --idts-grey: #8c8a99;
+  --idts-grey-dark: #4a4852;
+  --idts-purple: #5b2a86;
+  --idts-purple-dark: #3d1c5c;
+  --idts-black: #1a1a1f;
+
+  --idts-transition: 0.25s ease;
+}
+
+.intro {
+  padding: 5rem 0 3.5rem;
+  background-color: var(--idts-white);
+}
+
+.introEyebrow {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--idts-purple);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.introTitle {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--idts-black);
+  margin-bottom: 1.25rem;
+}
+
+.introText {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--idts-grey-dark);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--idts-black);
+  margin-bottom: 1rem;
+}
+
+.tabsSection {
+  padding: 1rem 0 4.5rem;
+  background-color: var(--idts-white);
+}
+
+.navTabs {
+  border-bottom: none;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+
+.tabButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-bottom: none;
+  color: var(--idts-grey-dark);
+  font-weight: 600;
+  background: transparent;
+  padding: 0.85rem 1.1rem;
+  transition: color var(--idts-transition), background-color var(--idts-transition);
+  border-radius: 6px;
+}
+
+.tabButton:hover {
+  color: var(--idts-purple);
+  background-color: var(--idts-grey-light);
+  isolation: isolate;
+}
+
+.tabButton.active,
+.navTabs :global(.nav-link.active) {
+  color: var(--idts-white) !important;
+  background-color: var(--idts-purple) !important;
+  border: none !important;
+  border-radius: 6px;
+}
+
+.tabContent {
+  padding-top: 2.5rem;
+}
+
+.tabPanel {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tabPanelIcon {
+  font-size: 2rem;
+  color: var(--idts-purple);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.tabPanelText {
+  color: var(--idts-grey-dark);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.valueCardWrapper {
+  perspective: 600px;
+  height: 100%;
+  min-height: 140px;
+  cursor: pointer;
+}
+
+.valueCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.valueCardWrapper:hover .valueCard {
+  transform: rotateX(180deg);
+}
+
+.valueCardFront,
+.valueCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 1.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.valueCardFront {
+  background-color: var(--idts-grey-light);
+  transform: rotateX(0deg);
+}
+
+.valueCardBack {
+  background-color: var(--idts-purple);
+  color: var(--idts-white);
+  transform: rotateX(180deg);
+}
+
+.valueIcon {
+  font-size: 1.6rem;
+  color: var(--idts-purple);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.valueCardBack .valueIcon {
+  color: var(--idts-white);
+}
+
+.valueTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--idts-black);
+  margin: 0;
+}
+
+.valueBackText {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--idts-white);
+}
+
+.benefitCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--idts-grey-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.4s ease,
+              background-color 0.3s ease;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  cursor: pointer;
+}
+
+.benefitCard:hover {
+  transform: rotateX(8deg) rotateY(8deg) translateZ(20px);
+  background-color: var(--idts-white);
+  box-shadow: 0 20px 40px rgba(26, 26, 31, 0.2), 0 8px 20px rgba(91, 42, 134, 0.15);
+}
+
+.benefitIcon {
+  font-size: 1.4rem;
+  color: var(--idts-purple);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  transition: transform 0.4s ease, color 0.3s ease;
+  transform: translateZ(20px);
+}
+
+.benefitCard:hover .benefitIcon {
+  transform: translateZ(30px) scale(1.1);
+  color: var(--idts-purple-dark);
+}
+
+.benefitTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--idts-black);
+  margin-bottom: 0.35rem;
+  transition: transform 0.4s ease;
+  transform: translateZ(10px);
+}
+
+.benefitCard:hover .benefitTitle {
+  transform: translateZ(20px);
+}
+
+.benefitText {
+  font-size: 0.88rem;
+  color: var(--idts-grey-dark);
+  line-height: 1.6;
+  margin: 0;
+  transition: transform 0.4s ease;
+  transform: translateZ(5px);
+}
+
+.benefitCard:hover .benefitText {
+  transform: translateZ(15px);
+}
+
+.approach {
+  padding: 4rem 0;
+  background-color: var(--idts-grey-light);
+  perspective: 1000px;
+}
+
+.approachCard {
+  position: relative;
+  background-color: var(--idts-white);
+  border-radius: 10px;
+  padding: 2rem 1.25rem 1.5rem;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(26, 26, 31, 0.06);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  cursor: pointer;
+}
+
+.approachCard:hover {
+  transform: rotateX(8deg) rotateY(-8deg) translateZ(20px);
+  box-shadow: 0 20px 40px rgba(26, 26, 31, 0.2), 0 8px 20px rgba(91, 42, 134, 0.15);
+}
+
+.approachNumber {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--idts-grey);
+  transition: transform 0.4s ease, color 0.3s ease;
+  transform: translateZ(10px);
+}
+
+.approachCard:hover .approachNumber {
+  transform: translateZ(25px);
+  color: var(--idts-purple);
+}
+
+.approachIcon {
+  font-size: 1.7rem;
+  color: var(--idts-purple);
+  margin-bottom: 0.9rem;
+  display: block;
+  transition: transform 0.4s ease, color 0.3s ease;
+  transform: translateZ(20px);
+}
+
+.approachCard:hover .approachIcon {
+  transform: translateZ(35px) scale(1.1);
+  color: var(--idts-purple-dark);
+}
+
+.approachTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--idts-black);
+  margin-bottom: 0.5rem;
+  transition: transform 0.4s ease;
+  transform: translateZ(15px);
+}
+
+.approachCard:hover .approachTitle {
+  transform: translateZ(25px);
+}
+
+.approachText {
+  font-size: 0.88rem;
+  color: var(--idts-grey-dark);
+  line-height: 1.6;
+  margin: 0;
+  transition: transform 0.4s ease;
+  transform: translateZ(5px);
+}
+
+.approachCard:hover .approachText {
+  transform: translateZ(15px);
+}
+
+.ctaBanner {
+  padding: 4rem 0;
+  background-color: var(--idts-purple);
+}
+
+.ctaTitle {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--idts-white);
+  margin-bottom: 0.75rem;
+}
+
+.ctaText {
+  color: var(--idts-grey-light);
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--idts-white);
+  color: var(--idts-purple);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  transition: background-color var(--idts-transition), color var(--idts-transition);
+}
+
+.ctaButton:hover {
+  background-color: var(--idts-black);
+  color: var(--idts-white);
+}

@@ -1,0 +1,213 @@
+:root {
+  --idts-white: #ffffff;
+  --idts-grey-light: #f2f1f6;
+  --idts-grey: #8c8a99;
+  --idts-grey-dark: #4a4852;
+  --idts-purple: #5b2a86;
+  --idts-purple-dark: #3d1c5c;
+  --idts-black: #1a1a1f;
+
+  --idts-transition: 0.25s ease;
+}
+
+/* HERO (split layout) */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--idts-white);
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* LEFT — text */
+.heroLeft {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 1rem;
+}
+
+/* RIGHT — carousel */
+.heroRight {
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 70vh;
+  position: relative;
+}
+
+.carouselWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(26, 26, 31, 0.15);
+  position: relative;
+}
+
+.carouselWrapper :global(.carousel),
+.carouselWrapper :global(.carousel-inner),
+.carouselWrapper :global(.carousel-item) {
+  height: 100%;
+}
+
+.carouselWrapper :global(.carousel-item img) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carouselWrapper :global(.carousel-fade .carousel-item) {
+  transition: opacity 1.2s ease;
+}
+
+/* Text styles */
+.aboutTitle {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--idts-black);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.aboutTagline {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--idts-grey-dark);
+  margin-bottom: 1.75rem;
+  max-width: 90%;
+}
+
+/* Rest of the page */
+.sectionTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--idts-black);
+  margin-bottom: 1rem;
+}
+
+.aboutTeaser {
+  padding: 4rem 0;
+  background-color: var(--idts-white);
+}
+
+.teaserText {
+  color: var(--idts-grey-dark);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.teaserLink {
+  color: var(--idts-purple);
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap var(--idts-transition), color var(--idts-transition);
+}
+
+.teaserLink:hover {
+  color: var(--idts-purple-dark);
+}
+
+.teaserLink i {
+  margin-left: 0.4rem;
+  transition: transform var(--idts-transition);
+}
+
+.teaserLink:hover i {
+  transform: translateX(4px);
+}
+
+.categories {
+  padding: 4rem 0;
+  background-color: var(--idts-grey-light);
+  perspective: 1000px;
+}
+
+.categoryCard {
+  background-color: var(--idts-white);
+  border-radius: 10px;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 2px 10px rgba(26, 26, 31, 0.06);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) translateZ(0);
+  cursor: pointer;
+}
+
+.categoryCard:hover {
+  transform: rotateX(8deg) rotateY(8deg) translateZ(20px);
+  box-shadow: 0 20px 40px rgba(26, 26, 31, 0.2), 0 8px 20px rgba(91, 42, 134, 0.15);
+}
+
+.categoryIcon {
+  font-size: 1.8rem;
+  color: var(--idts-purple);
+  margin-bottom: 0.9rem;
+  display: block;
+  transition: transform 0.4s ease, color 0.3s ease;
+  transform: translateZ(30px);
+}
+
+.categoryCard:hover .categoryIcon {
+  transform: translateZ(40px) scale(1.1);
+  color: var(--idts-purple-dark);
+}
+
+.categoryTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--idts-black);
+  margin: 0;
+  transition: transform 0.4s ease;
+  transform: translateZ(20px);
+}
+
+.categoryCard:hover .categoryTitle {
+  transform: translateZ(30px);
+}
+
+.ctaBanner {
+  padding: 4rem 0;
+  background-color: var(--idts-purple);
+}
+
+.ctaTitle {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--idts-white);
+  margin-bottom: 0.75rem;
+}
+
+.ctaText {
+  color: var(--idts-grey-light);
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--idts-white);
+  color: var(--idts-purple);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  transition: background-color var(--idts-transition), color var(--idts-transition);
+}
+
+.ctaButton:hover {
+  background-color: var(--idts-black);
+  color: var(--idts-white);
+}

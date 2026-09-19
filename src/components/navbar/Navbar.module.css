@@ -1,0 +1,252 @@
+:root {
+  --idts-white: #ffffff;
+  --idts-grey-light: #f2f1f6;
+  --idts-grey: #8c8a99;
+  --idts-grey-dark: #4a4852;
+  --idts-purple: #5b2a86;
+  --idts-purple-dark: #3d1c5c;
+  --idts-black: #1a1a1f;
+
+  /* Navbar-specific light theme tokens */
+  --nav-bg: #ffffff;              /* white shell */
+  --nav-bg-elevated: #f7f6fa;     /* dropdown / hover surface */
+  --nav-text: #1a1a1f;            /* primary dark text */
+  --nav-text-muted: #4a4852;      /* secondary / icon text */
+  --nav-border: #e2e1e8;          /* subtle separators */
+  --nav-accent: #5b2a86;          /* purple for light bg */
+  --nav-accent-hover: #3d1c5c;
+
+  --idts-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --idts-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --idts-transition: 0.2s ease;
+}
+
+/*  Navbar shell  */
+.navbar {
+  background-color: var(--nav-bg);
+  box-shadow: var(--idts-shadow);
+  padding: 0.6rem 1.5rem;
+  border-bottom: 3px solid var(--nav-accent);
+}
+
+/*  Brand  */
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brandShort {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--nav-accent);
+  letter-spacing: 0.05em;
+}
+
+.brandFull {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--nav-text-muted);
+  white-space: normal;
+  max-width: 220px;
+}
+
+/*  Toggler (mobile)  */
+.toggler {
+  border-color: var(--nav-text-muted);
+}
+
+.toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(91, 42, 134, 0.25);
+}
+
+/*  Nav links  */
+.navList {
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--nav-text);
+  font-weight: 600;
+  padding: 0.5rem 0.9rem !important;
+  border-radius: 6px;
+  transition: color var(--idts-transition), background-color var(--idts-transition);
+}
+
+.navLink i {
+  color: var(--nav-text-muted);
+  transition: color var(--idts-transition);
+  width: 1rem;
+  text-align: center;
+  margin-right: 7px;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: var(--nav-accent-hover);
+  background-color: var(--nav-bg-elevated);
+}
+
+.navLink:hover i,
+.navLink:focus i {
+  color: var(--nav-accent-hover);
+}
+
+/*  Dropdown (Our Services)  */
+.dropdown {
+  position: relative;
+}
+
+.dropdown :global(.dropdown-toggle::after) {
+  color: var(--nav-text-muted);
+  vertical-align: middle;
+  transition: transform var(--idts-transition);
+}
+
+/* Rotate caret when open */
+.dropdown:hover :global(.dropdown-toggle::after),
+.dropdown.show :global(.dropdown-toggle::after) {
+  transform: rotate(180deg);
+  color: var(--nav-accent-hover);
+}
+
+/*  Hover-based dropdown menu  */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 240px;
+  border: 1px solid var(--nav-border);
+  box-shadow: var(--idts-shadow-lg);
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: var(--nav-bg-elevated);
+
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+/* Show on hover OR when React state toggles it */
+.dropdown:hover .dropdownMenu,
+.dropdown.show .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Invisible bridge so the menu doesn't disappear when moving cursor down */
+.dropdownMenu::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+}
+
+/* Purple accent bar at the top of the dropdown */
+.dropdownMenu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nav-accent), var(--nav-accent-hover));
+  border-radius: 3px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.25s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.dropdown:hover .dropdownMenu::after,
+.dropdown.show .dropdownMenu::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/*  Dropdown items  */
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--nav-text);
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.55rem 0.85rem;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--idts-transition),
+              color var(--idts-transition),
+              transform var(--idts-transition),
+              padding-left var(--idts-transition);
+}
+
+.dropdownItem i {
+  color: var(--nav-accent);
+  width: 1.25rem;
+  text-align: center;
+  flex-shrink: 0;
+  transition: color var(--idts-transition), transform var(--idts-transition);
+}
+
+/* Left purple accent bar that slides in on hover */
+.dropdownItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 70%;
+  background-color: var(--nav-accent);
+  border-radius: 0 3px 3px 0;
+  transition: transform var(--idts-transition);
+}
+
+/* Higher specificity to beat Bootstrap's .dropdown-item:hover/:focus */
+.dropdownMenu .dropdownItem:hover,
+.dropdownMenu .dropdownItem:focus,
+.dropdownMenu .dropdownItem:active {
+  background-color: var(--nav-accent);
+  color: var(--idts-white);
+  padding-left: 1rem;
+}
+
+.dropdownMenu .dropdownItem:hover i,
+.dropdownMenu .dropdownItem:focus i,
+.dropdownMenu .dropdownItem:active i {
+  color: var(--idts-white);
+  transform: scale(1.15);
+}
+
+.dropdownMenu .dropdownItem:hover::before,
+.dropdownMenu .dropdownItem:focus::before,
+.dropdownMenu .dropdownItem:active::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+/*  Mobile collapse panel (Bootstrap) — keep it light too  */
+@media (max-width: 991px) {
+  .navbar :global(.navbar-collapse) {
+    background-color: var(--nav-bg);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .navLink {
+    color: var(--nav-text) !important;
+  }
+}

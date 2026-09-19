@@ -1,0 +1,318 @@
+:root {
+  --idts-white: #ffffff;
+  --idts-grey-light: #f2f1f6;
+  --idts-grey: #8c8a99;
+  --idts-grey-dark: #4a4852;
+  --idts-purple: #5b2a86;
+  --idts-purple-dark: #3d1c5c;
+  --idts-black: #1a1a1f;
+  --idts-success: #10b981;
+  --idts-success-light: #d1fae5;
+  --idts-error: #ef4444;
+  --idts-error-light: #fef2f2;
+
+  --idts-transition: 0.25s ease;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--idts-purple) 0%, var(--idts-purple-dark) 100%);
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--idts-white);
+  margin-bottom: 0.75rem;
+}
+
+.heroText {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--idts-grey-light);
+  margin: 0;
+}
+
+.contactSection {
+  padding: 4rem 0;
+  background-color: var(--idts-white);
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--idts-black);
+  margin-bottom: 0.75rem;
+}
+
+.sectionText {
+  color: var(--idts-grey-dark);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contactInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contactInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background-color: var(--idts-grey-light);
+  border-radius: 10px;
+  transition: transform var(--idts-transition), box-shadow var(--idts-transition);
+}
+
+.contactInfoItem:hover {
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(26, 26, 31, 0.08);
+}
+
+.contactInfoIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--idts-purple);
+  border-radius: 50%;
+  color: var(--idts-white);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contactInfoContent {
+  flex: 1;
+}
+
+.contactInfoTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--idts-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.25rem 0;
+}
+
+.contactInfoDetail {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--idts-black);
+  text-decoration: none;
+  transition: color var(--idts-transition);
+}
+
+.contactInfoDetail:hover {
+  color: var(--idts-purple);
+}
+
+.socialSection {
+  margin-top: 0.5rem;
+}
+
+.socialLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--idts-grey-dark);
+  margin-bottom: 0.75rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.socialIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--idts-grey-light);
+  border-radius: 50%;
+  color: var(--idts-grey-dark);
+  text-decoration: none;
+  transition: background-color var(--idts-transition), color var(--idts-transition), transform var(--idts-transition);
+}
+
+.socialIcon:hover {
+  background-color: var(--idts-purple);
+  color: var(--idts-white);
+  transform: translateY(-3px);
+}
+
+.formWrapper {
+  background-color: var(--idts-grey-light);
+  padding: 2.5rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+.form {
+  margin-top: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 0.25rem;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--idts-grey-dark);
+  margin-bottom: 0.4rem;
+}
+
+.formLabel i {
+  margin-right: 0.4rem;
+  color: var(--idts-purple);
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: var(--idts-white);
+  color: var(--idts-black);
+  font-size: 1rem;
+  transition: border-color var(--idts-transition), box-shadow var(--idts-transition);
+  font-family: inherit;
+}
+
+.formTextarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--idts-purple);
+  box-shadow: 0 0 0 4px rgba(91, 42, 134, 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--idts-grey);
+}
+
+.formInput.inputError,
+.formTextarea.inputError {
+  border-color: var(--idts-error);
+  background-color: var(--idts-error-light);
+}
+
+.formInput.inputError:focus,
+.formTextarea.inputError:focus {
+  border-color: var(--idts-error);
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--idts-error);
+}
+
+.errorMessage i {
+  font-size: 0.9rem;
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2rem;
+  background-color: var(--idts-purple);
+  color: var(--idts-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--idts-transition), transform var(--idts-transition);
+  width: 100%;
+  justify-content: center;
+}
+
+.submitButton:hover {
+  background-color: var(--idts-purple-dark);
+  transform: translateY(-2px);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.successMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--idts-success);
+  color: var(--idts-white);
+  padding: 1.5rem 2.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+  animation: slideIn 0.5s ease;
+  z-index: 10;
+}
+
+.successMessage i {
+  font-size: 1.8rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .contactInfoItem {
+    padding: 1rem;
+  }
+
+  .contactInfoIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .formWrapper {
+    padding: 1.5rem;
+  }
+
+  .successMessage {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    width: 90%;
+  }
+}

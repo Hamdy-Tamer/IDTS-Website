@@ -1,0 +1,168 @@
+:root {
+  --idts-white: #ffffff;
+  --idts-grey-light: #f2f1f6;
+  --idts-grey: #8c8a99;
+  --idts-grey-dark: #4a4852;
+  --idts-purple: #5b2a86;
+  --idts-purple-dark: #3d1c5c;
+  --idts-black: #1a1a1f;
+
+  --idts-transition: 0.2s ease;
+}
+
+/*  Footer shell  */
+.footer {
+  background-color: var(--idts-black);
+  color: var(--idts-grey-light);
+  padding: 3rem 0 1.25rem;
+  border-top: 3px solid var(--idts-purple);
+  margin-top: auto;
+}
+
+/*  Brand  */
+.brand {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.brandShort {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--idts-white);
+  letter-spacing: 0.05em;
+}
+
+.brandFull {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--idts-grey);
+  max-width: 240px;
+}
+
+.blurb {
+  font-size: 0.85rem;
+  color: var(--idts-grey);
+  max-width: 280px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/*  Socials  */
+.socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: var(--idts-grey-dark);
+  color: var(--idts-white);
+  transition: background-color var(--idts-transition), color var(--idts-transition);
+}
+
+.socialIcon:hover {
+  background-color: var(--idts-purple);
+  color: var(--idts-black);
+}
+
+/*  Headings  */
+.heading {
+  color: var(--idts-white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+/*  Link lists with underline animation  */
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.linkList a {
+  color: var(--idts-grey);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--idts-transition), padding-left var(--idts-transition);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+/* Pseudo element for underline animation */
+.linkList a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--idts-purple);
+  transition: width 0.3s ease;
+}
+
+.linkList a:hover {
+  color: var(--idts-white);
+  padding-left: 4px;
+}
+
+.linkList a:hover::after {
+  width: 100%;
+}
+
+/*  Contact list  */
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contactList li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--idts-grey);
+}
+
+.contactList i {
+  color: var(--idts-purple);
+  width: 1rem;
+  text-align: center;
+}
+
+/*  Divider & bottom bar  */
+.divider {
+  border: none;
+  border-top: 1px solid var(--idts-grey-dark);
+  margin: 2rem 0 1rem;
+  opacity: 1;
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.78rem;
+  color: var(--idts-grey);
+  margin: 0;
+}

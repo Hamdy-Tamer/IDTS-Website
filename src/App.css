@@ -1,0 +1,15 @@
+:root {
+  --white-text: #ffffff;
+  --purple-background: #5b2a86;
+}
+
+
+::selection {
+  background-color: var(--purple-background);
+  color: var(--white-text);
+}
+
+::-moz-selection {
+  background-color: var(--purple-background);
+  color: var(--white-text);
+}
