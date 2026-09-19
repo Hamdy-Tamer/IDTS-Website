@@ -80,7 +80,7 @@ function Footer() {
             <ul className={styles.linkList}>
               {services.map((service) => (
                 <li key={service.label}>
-                  <a href={service.url}>{service.label}</a>
+                  <Link to={service.url}>{service.label}</Link>
                 </li>
               ))}
             </ul>
