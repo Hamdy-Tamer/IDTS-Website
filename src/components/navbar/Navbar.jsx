@@ -5,13 +5,19 @@ import styles from "./Navbar.module.css";
 
 function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navRef = useRef(null);
 
-  // Close the dropdown when clicking anywhere outside of it
+  // Close the services dropdown when clicking anywhere outside of it,
+  // and close the mobile menu when clicking anywhere outside the navbar
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setServicesOpen(false);
+      }
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setMobileOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -19,7 +25,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`navbar navbar-expand-lg ${styles.navbar}`} data-bs-theme="light">
+    <nav className={`navbar navbar-expand-lg ${styles.navbar}`} data-bs-theme="light" ref={navRef}>
       <div className="container-fluid">
         {/* Brand: abbreviation on top, full name underneath */}
         <Link className={`navbar-brand ${styles.brand}`} to="/">
@@ -32,26 +38,25 @@ function Navbar() {
         <button
           className={`navbar-toggler ${styles.toggler}`}
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNavbar"
           aria-controls="mainNavbar"
-          aria-expanded="false"
+          aria-expanded={mobileOpen}
           aria-label="Toggle navigation"
+          onClick={() => setMobileOpen((prev) => !prev)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="mainNavbar">
+        <div className={`collapse navbar-collapse ${mobileOpen ? "show" : ""}`} id="mainNavbar">
           <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 ${styles.navList}`}>
             <li className="nav-item">
-              <Link className={`nav-link ${styles.navLink}`} to="/">
+              <Link className={`nav-link ${styles.navLink}`} to="/" onClick={() => setMobileOpen(false)}>
                 <i className="fa-solid fa-house"></i>
                 <span>Home</span>
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className={`nav-link ${styles.navLink}`} to="/about">
+              <Link className={`nav-link ${styles.navLink}`} to="/about" onClick={() => setMobileOpen(false)}>
                 <i className="fa-solid fa-circle-info"></i>
                 <span>About us</span>
               </Link>
@@ -76,28 +81,28 @@ function Navbar() {
                 <li>
                   <a className={`dropdown-item ${styles.dropdownItem}`}
                     href="#"
-                    onClick={() => setServicesOpen(false)}>
+                    onClick={() => { setServicesOpen(false); setMobileOpen(false); }}>
                     <i className="fa-solid fa-truck-fast"></i> Logistics &amp; Trade
                   </a>
                 </li>
                 <li>
                   <a className={`dropdown-item ${styles.dropdownItem}`}
                     href="#"
-                    onClick={() => setServicesOpen(false)}>
+                    onClick={() => { setServicesOpen(false); setMobileOpen(false); }}>
                     <i className="fa-solid fa-chart-line"></i> Development Consulting
                   </a>
                 </li>
                 <li>
                   <Link className={`dropdown-item ${styles.dropdownItem}`}
                     to="/services/maintenance"
-                    onClick={() => setServicesOpen(false)}>
+                    onClick={() => { setServicesOpen(false); setMobileOpen(false); }}>
                     <i className="fa-solid fa-boxes-stacked"></i> Maintenance Solutions
                   </Link>
                 </li>
                                 <li>
                   <Link className={`dropdown-item ${styles.dropdownItem}`}
                     to="/services/financial"
-                    onClick={() => setServicesOpen(false)}>
+                    onClick={() => { setServicesOpen(false); setMobileOpen(false); }}>
                     <i className="fa-solid fa-file-invoice-dollar"></i> Financial Solutions
                   </Link>
                 </li>
@@ -105,7 +110,7 @@ function Navbar() {
             </li>
 
             <li className="nav-item">
-              <Link className={`nav-link ${styles.navLink}`} to="/contact">
+              <Link className={`nav-link ${styles.navLink}`} to="/contact" onClick={() => setMobileOpen(false)}>
                 <i className="fa-solid fa-envelope"></i>
                 <span>Contact us</span>
               </Link>
